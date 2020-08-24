@@ -6,6 +6,7 @@
     <Loading v-if="loading"/>
     <Error v-if="error"/>
     </Body>
+    <Footer/>
   </div>
 </template>
 
@@ -18,10 +19,12 @@
   import Loading from '@/components/Loading.vue';
   import Error from '@/components/Error.vue';
   import { groupByForEveryoneType, ScheduleEvent } from '@/schedule/schedule';
+  import Footer from '@/components/Footer.vue';
 
   export default Vue.extend({
     name: 'App',
     components: {
+      Footer,
       Error,
       Loading,
       Body,
