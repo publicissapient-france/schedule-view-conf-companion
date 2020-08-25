@@ -1,4 +1,4 @@
-import { groupByForEveryoneType, ScheduleEvent } from '@/schedule/schedule';
+import { prepareScheduleForDomPrint, ScheduleEvent } from '@/schedule/schedule';
 
 describe('schedule', () => {
   it('should group by for everyone event', () => {
@@ -43,7 +43,7 @@ describe('schedule', () => {
       room: 'b'
     } as {} as ScheduleEvent;
     // WHEN
-    const result = groupByForEveryoneType([e1, e2, e3, e4, e5, e6, e7]);
+    const result = prepareScheduleForDomPrint([e1, e2, e3, e4, e5, e6, e7]);
     // THEN
     expect(result).toEqual([
       e1,

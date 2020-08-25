@@ -1,17 +1,11 @@
 <template>
   <div class="schedule">
-    <Details
-      v-if="talk"
-      :talk="talk"
-      @detailsClick="onDetailsClick"
-    />
     <div
-      v-for="(firstLevel, index) in schedule"
+      v-for="(firstLevel, index) in combinedSchedule"
       :key="index"
       class="line"
     >
       <Talk
-        @talkClick="onTalkClick"
         v-if="firstLevel.id"
         :talk="firstLevel"/>
       <template
@@ -19,7 +13,6 @@
         v-for="(secondLevel, index) in firstLevel"
       >
         <Talk
-          @talkClick="onTalkClick"
           v-if="secondLevel.id"
           class="item"
           :key="secondLevel.id"
@@ -30,7 +23,6 @@
           :key="index"
         >
           <Talk
-            @talkClick="onTalkClick"
             :talk="item"
             v-for="item in secondLevel"
             class="item"
@@ -44,25 +36,15 @@
 <script lang="ts">
   import Vue from 'vue';
   import Talk from '@/components/Talk.vue';
-  import Details from '@/components/Details.vue';
-  import { ScheduleEvent } from '@/schedule/schedule';
+  import { prepareScheduleForDomPrint } from '@/schedule/schedule';
 
   export default Vue.extend({
     name: 'Schedule',
-    components: { Details, Talk },
+    components: { Talk },
     props: ['schedule'],
-    data() {
-      return {
-        talk: null as ScheduleEvent | null
-      };
-    },
-    methods: {
-      onTalkClick(talk: ScheduleEvent) {
-        console.log(talk);
-        this.talk = talk;
-      },
-      onDetailsClick() {
-        this.talk = null;
+    computed: {
+      combinedSchedule: function () {
+        return prepareScheduleForDomPrint(this.schedule);
       }
     }
   });

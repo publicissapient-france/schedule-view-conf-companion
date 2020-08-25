@@ -1,26 +1,28 @@
 <template>
-  <div
-    @click="$emit('talkClick', talk)"
-    class="talk"
-    :class="[talk.kind]"
-  >
-    <div class="time">
-      {{start}} - {{end}}
+  <router-link :to="`/${talk.id}`">
+    <div
+      @click="$emit('talkClick', talk)"
+      class="talk"
+      :class="[talk.kind]"
+    >
+      <div class="time">
+        {{start}} - {{end}}
+      </div>
+      <div class="title">
+        {{talk.title}}
+      </div>
+      <div class="room">
+        {{talk.room}}
+      </div>
     </div>
-    <div class="title">
-      {{talk.title}}
-    </div>
-    <div class="room">
-      {{talk.room}}
-    </div>
-  </div>
+  </router-link>
 </template>
 
 <script>
   import moment from 'moment';
 
   export default {
-    name: 'Talk',
+    name: 'TalkInfo',
     props: ['talk'],
     computed: {
       start: function () {
@@ -43,7 +45,6 @@
     margin-top: 10px;
     border-radius: $radius;
     box-shadow: $shadow;
-    cursor: pointer;
     display: flex;
     flex-direction: column;
     width: 200px;

@@ -2,9 +2,8 @@
   <div id="app">
     <Header/>
     <Body>
-    <Schedule v-if="!loading && !error" :schedule="schedule"/>
-    <Loading v-if="loading"/>
-    <Error v-if="error"/>
+    <router-view v-if="schedule" :schedule="schedule"/>
+    <Error v-else/>
     </Body>
     <Footer/>
   </div>
@@ -13,44 +12,27 @@
 <script lang="ts">
   import Vue from 'vue';
   import axios from 'axios';
-  import Header from '@/components/Header.vue';
-  import Schedule from '@/components/Schedule.vue';
+  import { ScheduleEvent } from '@/schedule/schedule';
   import Body from '@/components/Body.vue';
-  import Loading from '@/components/Loading.vue';
-  import Error from '@/components/Error.vue';
-  import { groupByForEveryoneType, ScheduleEvent } from '@/schedule/schedule';
+  import Header from '@/components/Header.vue';
   import Footer from '@/components/Footer.vue';
+  import Error from '@/components/Error.vue';
 
   export default Vue.extend({
-    name: 'App',
-    components: {
-      Footer,
-      Error,
-      Loading,
-      Body,
-      Header,
-      Schedule
-    },
+    components: { Error, Body, Header, Footer },
     data() {
       return {
-        schedule: [] as ScheduleEvent[],
-        error: false,
-        loading: false
+        schedule: null as ScheduleEvent[] | null
       };
     },
     async mounted() {
       try {
         const response = await axios.get<ScheduleEvent[]>('https://s3.eu-central-1.amazonaws.com/blacroix-conf-companion/xke/schedule.json');
         if (response.status === 200) {
-          this.schedule = groupByForEveryoneType(response.data);
-        } else {
-          this.error = true;
+          this.schedule = response.data;
         }
       } catch (e) {
-        this.error = true;
         console.error(e);
-      } finally {
-        this.loading = false;
       }
     }
   });
@@ -77,5 +59,18 @@
 
   pre {
     white-space: normal;
+  }
+
+  a {
+    color: inherit;
+    display: inherit;
+    text-decoration: none;
+    width: 100%;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
   }
 </style>

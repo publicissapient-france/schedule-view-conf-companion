@@ -1,5 +1,5 @@
 <template>
-  <div>An error occurred, please retry.</div>
+  <div class="error">An error occurred, please retry.</div>
 </template>
 
 <script>
@@ -8,6 +8,10 @@
   }
 </script>
 
-<style scoped>
-
+<style scoped lang="scss">
+  .error {
+    width: 900px;
+    padding: 50px 10px;
+    text-align: center;
+  }
 </style>

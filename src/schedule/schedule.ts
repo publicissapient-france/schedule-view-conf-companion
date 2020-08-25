@@ -10,9 +10,13 @@ export type ScheduleEvent = {
   toTime: string;
   type: string;
   kind: string;
+  speakers: {
+    name: string;
+    id: string;
+  }[];
 };
 
-export const groupByForEveryoneType = (events: ScheduleEvent[]) => {
+export const prepareScheduleForDomPrint = (events: ScheduleEvent[]) => {
   const eventsWithEveryone: { [p: string]: ScheduleEvent | ScheduleEvent[] } =
     events
       .filter(e => e.kind && e.kind.match(/keynote|break/))
