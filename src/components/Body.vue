@@ -14,7 +14,7 @@
   @import "../styles/variables";
 
   .body {
-    width: fit-content;
+    max-width: 930px;
     background-color: #F2F2F2;
     margin: -50px auto 50px;
     border-top: solid 10px $primary;
