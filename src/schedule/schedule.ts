@@ -64,6 +64,10 @@ export const prepareScheduleForDomPrint = (events: ScheduleEvent[]) => {
               } else {
                 obj[it.room] = it;
               }
+              if (Array.isArray(obj[it.room])) {
+                obj[it.room].sort((a: ScheduleEvent, b: ScheduleEvent) =>
+                  moment(a.fromTime).diff(moment(b.fromTime)));
+              }
               return obj;
             }, {}));
       }

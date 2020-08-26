@@ -78,6 +78,7 @@
   .summary {
     color: #2B2B2B;
     font-size: .9em;
+    margin-top: 30px;
   }
 
   .time {
