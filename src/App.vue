@@ -3,6 +3,7 @@
     <Header/>
     <Body>
     <router-view v-if="schedule" :schedule="schedule"/>
+    <Loading v-else-if="loading"/>
     <Error v-else/>
     </Body>
     <Footer/>
@@ -17,12 +18,14 @@
   import Header from '@/components/Header.vue';
   import Footer from '@/components/Footer.vue';
   import Error from '@/components/Error.vue';
+  import Loading from '@/components/Loading.vue';
 
   export default Vue.extend({
-    components: { Error, Body, Header, Footer },
+    components: { Loading, Error, Body, Header, Footer },
     data() {
       return {
-        schedule: null as ScheduleEvent[] | null
+        schedule: null as ScheduleEvent[] | null,
+        loading: true
       };
     },
     async mounted() {
@@ -33,6 +36,8 @@
         }
       } catch (e) {
         console.error(e);
+      } finally {
+        this.loading = false;
       }
     }
   });

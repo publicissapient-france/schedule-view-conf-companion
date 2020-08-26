@@ -1,5 +1,5 @@
 <template>
-  <div>Loading schedule, please wait...</div>
+  <div class="loading">Récupération du planning, veuillez patienter...</div>
 </template>
 
 <script>
@@ -8,6 +8,10 @@
   }
 </script>
 
-<style scoped>
-
+<style scoped lang="scss">
+  .loading {
+    width: 900px;
+    padding: 50px 10px;
+    text-align: center;
+  }
 </style>

@@ -24,7 +24,12 @@
       </div>
     </div>
     <div class="copyright">
-      © {{new Date().getFullYear()}} Publicis Sapient Engineering. All right reserved. Questions?
+      © {{new Date().getFullYear()}} Publicis Sapient Engineering. <a
+      href="https://github.com/xebia-france/schedule-view-conf-companion/issues"
+      target="_blank"
+      class="issues"
+    >
+      Questions?</a>
     </div>
   </footer>
 </template>
@@ -59,5 +64,11 @@
 
   .copyright {
     margin-top: 30px;
+  }
+
+  .issues {
+    display: inline;
+    width: fit-content;
+    text-decoration: underline;
   }
 </style>
