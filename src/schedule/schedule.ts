@@ -17,6 +17,31 @@ export type ScheduleEvent = {
 };
 
 export const prepareScheduleForDomPrint = (events: ScheduleEvent[]) => {
+
+  const theDay = moment(events[0].fromTime);
+
+  events.push({
+    fromTime: new Date(
+      theDay.year(),
+      theDay.month(),
+      theDay.date(),
+      23,
+      59).toISOString(),
+    id: 'last-of-the-day',
+    kind: 'keynote'
+  } as {} as ScheduleEvent);
+
+  events.push({
+    fromTime: new Date(
+      theDay.year(),
+      theDay.month(),
+      theDay.date(),
+      0,
+      1).toISOString(),
+    id: 'first-of-the-day',
+    kind: 'keynote'
+  } as {} as ScheduleEvent);
+
   const eventsWithEveryone: { [p: string]: ScheduleEvent | ScheduleEvent[] } =
     events
       .filter(e => e.kind && e.kind.match(/keynote|break/))
@@ -51,6 +76,9 @@ export const prepareScheduleForDomPrint = (events: ScheduleEvent[]) => {
       arr.push(result[item]);
       return arr;
     }, [])
+    .filter(item =>
+      item.id !== 'last-of-the-day'
+      && item.id !== 'first-of-the-day')
     .map(item => {
       if (Array.isArray(item)) {
         return Object.values(

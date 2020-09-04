@@ -1,19 +1,17 @@
 <template>
-  <router-link :to="`/${talk.id}`">
-    <div
-      @click="$emit('talkClick', talk)"
-      class="talk"
-      :class="[talk.kind]"
-    >
-      <div class="time">
-        {{start}} - {{end}}
-      </div>
-      <div class="title">
-        {{talk.title}}
-      </div>
-      <div class="room">
-        {{talk.room}}
-      </div>
+  <router-link
+    class="talk"
+    :class="[talk.kind]"
+    :to="`/${talk.id}`"
+  >
+    <div class="time">
+      {{start}} - {{end}}
+    </div>
+    <div class="title">
+      {{talk.title}}
+    </div>
+    <div class="room">
+      {{talk.room}}
     </div>
   </router-link>
 </template>
@@ -48,6 +46,7 @@
     display: flex;
     flex-direction: column;
     width: 200px;
+    flex-grow: 1;
 
     &.keynote {
       background-color: $primary;
