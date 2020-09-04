@@ -56,7 +56,6 @@
   @import "../styles/variables";
 
   .info {
-    width: 930px;
     padding: 10px;
   }
 
@@ -69,7 +68,6 @@
     margin-top: 30px;
     text-transform: uppercase;
     text-align: center;
-    width: 98%;
 
     &:hover {
       background-color: darken(#B2B2B2, 5);
@@ -105,7 +103,6 @@
   .speaker {
     background-color: $tertiary;
     color: #FFFFFF;
-    width: 98%;
     padding: 10px;
     font-size: .8em;
     border-radius: $radius;
