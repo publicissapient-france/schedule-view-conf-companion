@@ -45,7 +45,7 @@
     box-shadow: $shadow;
     display: flex;
     flex-direction: column;
-    width: 200px;
+    width: auto;
     flex-grow: 1;
 
     &.keynote {
