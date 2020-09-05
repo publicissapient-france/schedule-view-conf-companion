@@ -1,8 +1,11 @@
 <template>
   <div id="app">
-    <Header/>
+    <Header :day="day"/>
     <Body>
-    <router-view v-if="schedule" :schedule="schedule"/>
+    <router-view
+      v-if="schedule"
+      :schedule="schedule"
+    />
     <Loading v-else-if="loading"/>
     <Error v-else/>
     </Body>
@@ -25,6 +28,7 @@
     data() {
       return {
         schedule: null as ScheduleEvent[] | null,
+        day: null as string | null,
         loading: true
       };
     },
@@ -33,6 +37,7 @@
         const response = await axios.get<ScheduleEvent[]>('https://s3.eu-central-1.amazonaws.com/blacroix-conf-companion/xke/schedule.json');
         if (response.status === 200) {
           this.schedule = response.data;
+          this.day = response.data[0].fromTime;
         }
       } catch (e) {
         console.error(e);
