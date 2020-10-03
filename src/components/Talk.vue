@@ -5,78 +5,88 @@
     :to="`/${talk.id}`"
   >
     <div class="time">
-      {{start}} - {{end}}
+      {{ start }} - {{ end }}
     </div>
     <div class="title">
-      {{talk.title}}
+      {{ talk.title }}
     </div>
     <div class="room">
-      {{talk.room}}
+      {{ talk.room }}
     </div>
   </router-link>
 </template>
 
 <script>
-  import moment from 'moment';
+import moment from 'moment';
 
-  export default {
-    name: 'TalkInfo',
-    props: ['talk'],
-    computed: {
-      start: function () {
-        return moment(this.talk.fromTime).format('HH:mm');
-      },
-      end: function () {
-        return moment(this.talk.toTime).format('HH:mm');
-      }
+export default {
+  name: 'TalkInfo',
+  props: ['talk'],
+  computed: {
+    start: function () {
+      return moment(this.talk.fromTime).format('HH:mm');
+    },
+    end: function () {
+      return moment(this.talk.toTime).format('HH:mm');
     }
   }
+}
 </script>
 
 <style scoped lang="scss">
-  @import "../styles/variables";
+@import "../styles/variables";
 
-  .talk {
-    background-color: #FFFFFF;
-    padding: 10px;
-    margin-left: 10px;
-    margin-top: 10px;
-    border-radius: $radius;
-    box-shadow: $shadow;
-    display: flex;
-    flex-direction: column;
-    width: auto;
+.talk {
+  background-color: #FFFFFF;
+  padding: 10px;
+  margin-left: 10px;
+  margin-top: 10px;
+  border-radius: $radius;
+  box-shadow: $shadow;
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  flex-grow: 1;
+
+  &.keynote {
+    background-color: $primary;
+    color: #FFFFFF;
     flex-grow: 1;
+
+    .title {
+      height: auto;
+    }
+  }
+
+  &:hover {
+    background-color: darken(#FFFFFF, 10);
 
     &.keynote {
-      background-color: $primary;
-      color: #FFFFFF;
-      flex-grow: 1;
-    }
-
-    &:hover {
-      background-color: darken(#FFFFFF, 10);
-
-      &.keynote {
-        background-color: darken($primary, 10);
-      }
+      background-color: darken($primary, 10);
     }
   }
+}
 
-  .time {
-    font-size: .7em;
-    margin-bottom: 10px;
-    flex-grow: 1;
-    opacity: .8;
-  }
+.time {
+  font-size: .7em;
+  margin-bottom: 10px;
+  opacity: .8;
+}
 
-  .title {
-    flex-grow: 1;
-  }
+.title {
+  flex-grow: 1;
+  height: 55px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
 
-  .room {
-    font-size: .7em;
-    margin-top: 10px;
-    opacity: .8;
-  }
+.room {
+  font-size: .7em;
+  margin-top: 10px;
+  opacity: .8;
+}
 </style>

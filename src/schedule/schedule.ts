@@ -29,7 +29,7 @@ export const prepareScheduleForDomPrint = (events: ScheduleEvent[]) => {
       59).toISOString(),
     id: 'last-of-the-day',
     kind: 'keynote'
-  } as {} as ScheduleEvent);
+  } as ScheduleEvent);
 
   events.push({
     fromTime: new Date(
@@ -40,7 +40,7 @@ export const prepareScheduleForDomPrint = (events: ScheduleEvent[]) => {
       1).toISOString(),
     id: 'first-of-the-day',
     kind: 'keynote'
-  } as {} as ScheduleEvent);
+  } as ScheduleEvent);
 
   const eventsWithEveryone: { [p: string]: ScheduleEvent | ScheduleEvent[] } =
     events
