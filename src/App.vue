@@ -1,14 +1,12 @@
 <template>
   <div id="app">
     <Header :day="day"/>
-    <Body>
     <router-view
       v-if="schedule"
       :schedule="schedule"
     />
     <Loading v-else-if="loading"/>
     <Error v-else/>
-    </Body>
     <Footer/>
   </div>
 </template>
@@ -17,14 +15,13 @@
   import Vue from 'vue';
   import axios from 'axios';
   import { ScheduleEvent } from '@/schedule/schedule';
-  import Body from '@/components/Body.vue';
   import Header from '@/components/Header.vue';
   import Footer from '@/components/Footer.vue';
   import Error from '@/components/Error.vue';
   import Loading from '@/components/Loading.vue';
 
   export default Vue.extend({
-    components: { Loading, Error, Body, Header, Footer },
+    components: { Loading, Error, Header, Footer },
     data() {
       return {
         schedule: null as ScheduleEvent[] | null,
@@ -64,7 +61,7 @@
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    min-width: 950px;
+    box-sizing: border-box;
   }
 
   pre {

@@ -51,8 +51,11 @@
 </script>
 
 <style scoped lang="scss">
+  @import "../styles/variables";
+
   .schedule {
-    padding-bottom: 10px;
+    @extend %body-shared;
+    min-width: 960px;
   }
 
   .line {

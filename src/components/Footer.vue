@@ -49,11 +49,12 @@
   }
 
   .badges {
-    display: flex;
-    justify-content: center;
+    text-align: center;
+    margin: 10px;
 
     a {
       width: fit-content;
+      display: inline;
       margin: 10px;
     }
 

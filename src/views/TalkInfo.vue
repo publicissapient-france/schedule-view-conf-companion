@@ -1,5 +1,5 @@
 <template>
-  <div class="info">
+  <section class="info">
     <div class="time">
       {{ start }} - {{ end }}
     </div>
@@ -19,7 +19,7 @@
       {{ talk.room }}
     </div>
     <router-link class="back" to="/" replace>Retour au planning</router-link>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -56,7 +56,9 @@ export default {
 @import "../styles/variables";
 
 .info {
+  @extend %body-shared;
   padding: 10px;
+  width: 90vw;
 }
 
 .back {
