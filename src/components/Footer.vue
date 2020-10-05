@@ -45,7 +45,7 @@
     font-size: .8em;
     color: #2B2B2B;
     text-align: center;
-    margin: 30px 0;
+    margin: 30px 10px;
   }
 
   .badges {
@@ -60,6 +60,7 @@
 
     img {
       height: 50px;
+      margin-top: 10px;
     }
   }
 
