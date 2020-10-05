@@ -15,6 +15,11 @@
     <VueMarkdown class="summary">
       {{ talk.summary || 'Aucune description.' }}
     </VueMarkdown>
+    <a
+      class="rate"
+      :href="`https://conf-companion.firebaseapp.com/rate/cc-20201005#${talk.id}`">
+      Laisser un commentaire
+    </a>
     <div class="room">
       {{ talk.room }}
     </div>
@@ -73,6 +78,21 @@ export default {
 
   &:hover {
     background-color: darken(#B2B2B2, 5);
+  }
+}
+
+.rate {
+  background-color: $primary;
+  color: #FFFFFF;
+  padding: 10px 0;
+  border-radius: $radius;
+  margin-top: 10px;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: .8em;
+
+  &:hover {
+    background-color: darken($primary, 5);
   }
 }
 
