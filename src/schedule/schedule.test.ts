@@ -114,4 +114,32 @@ describe('schedule', () => {
       [e1, e3, e2]
     ]);
   });
+
+  it('should allow events without room', () => {
+    // GIVEN
+    const e1 = {
+      title: 'Talk A',
+      fromTime: '2020-07-06 09:00',
+      toTime: '2020-07-06 09:30',
+      kind: 'talk'
+    } as {} as ScheduleEvent;
+    const e2 = {
+      title: 'Talk B',
+      fromTime: '2020-07-06 09:30',
+      toTime: '2020-07-06 10:00',
+      kind: 'talk'
+    } as {} as ScheduleEvent;
+    const e3 = {
+      title: 'Talk C',
+      fromTime: '2020-07-06 09:00',
+      toTime: '2020-07-06 10:00',
+      kind: 'talk'
+    } as {} as ScheduleEvent;
+    // WHEN
+    const result = prepareScheduleForDomPrint([e1, e2, e3]);
+    // THEN
+    expect(result).toEqual([
+      [[e1, e2], e3]
+    ]);
+  });
 });

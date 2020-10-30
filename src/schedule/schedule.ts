@@ -4,7 +4,8 @@ export type ScheduleEvent = {
   fromTime: string;
   start?: Moment;
   id: string;
-  room: string;
+  room?: string;
+  conferenceUrl?: string;
   summary: string;
   title: string;
   toTime: string;
@@ -55,6 +56,8 @@ export const prepareScheduleForDomPrint = (events: ScheduleEvent[]) => {
 
   const eventsForGroup = events.filter(e => !e.kind || !e.kind.match(/keynote|break/));
 
+  const roomDefined = eventsForGroup.filter(event => !event.room).length === 0;
+
   for (const ev of eventsForGroup) {
     for (let i = 0; i < Object.keys(eventsWithEveryone).length; i++) {
       if (moment(ev.fromTime).isBetween(Object.keys(eventsWithEveryone)[i], Object.keys(eventsWithEveryone)[i + 1])) {
@@ -81,6 +84,21 @@ export const prepareScheduleForDomPrint = (events: ScheduleEvent[]) => {
       && item.id !== 'first-of-the-day')
     .map(item => {
       if (Array.isArray(item)) {
+        if (!roomDefined) {
+          const columns: string[] = [];
+          item.forEach(event => {
+            const column = columns.findIndex((e: string) =>
+              moment(e).isSameOrBefore(event.fromTime));
+            if (column >= 0) {
+              columns[column] = event.toTime;
+              event.room = `Room ${column}`;
+            } else {
+              const length = columns.length;
+              columns[length] = event.toTime;
+              event.room = `Room ${length}`;
+            }
+          });
+        }
         return Object.values(
           item
             .sort((a, b) => a.room.localeCompare(b.room))

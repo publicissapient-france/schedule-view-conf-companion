@@ -1,9 +1,17 @@
 <template>
   <section class="info">
-    <div class="time">
-      {{ start }} - {{ end }}
+    <div class="head">
+      <div class="time">
+        {{ start }} - {{ end }}
+      </div>
+      <div class="room">
+        {{ talk.room }}
+      </div>
     </div>
     <h1>{{ talk.title }}</h1>
+    <VueMarkdown class="summary">
+      {{ talk.summary || 'Aucune description.' }}
+    </VueMarkdown>
     <a
       class="speaker"
       v-for="speaker in speakersWithUsername"
@@ -12,17 +20,19 @@
       :href="`https://blog.engineering.publicissapient.fr/author/${speaker.username}/`">
       {{ speaker.name }}
     </a>
-    <VueMarkdown class="summary">
-      {{ talk.summary || 'Aucune description.' }}
-    </VueMarkdown>
+    <a
+      target="_blank"
+      v-if="talk.conferenceUrl"
+      class="meet"
+      :href="talk.conferenceUrl">
+      Rejoindre la conférence
+    </a>
     <a
       class="rate"
+      target="_blank"
       :href="`https://conf-companion.firebaseapp.com/rate/cc-20201005#${talk.id}`">
       Laisser un commentaire
     </a>
-    <div class="room">
-      {{ talk.room }}
-    </div>
     <router-link class="back" to="/" replace>Retour au planning</router-link>
   </section>
 </template>
@@ -66,6 +76,11 @@ export default {
   width: 90vw;
 }
 
+.head {
+  display: flex;
+  justify-content: space-between;
+}
+
 .back {
   background-color: #B2B2B2;
   padding: 10px 0;
@@ -96,25 +111,38 @@ export default {
   }
 }
 
+.meet {
+  background-color: #06ab47;
+  color: #FFFFFF;
+  padding: 10px 0;
+  border-radius: $radius;
+  margin-top: 30px;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: .8em;
+
+  &:hover {
+    background-color: darken(#06ab47, 5);
+  }
+}
+
 .summary {
   color: #2B2B2B;
   font-size: .9em;
   margin-top: 30px;
+  margin-bottom: 40px;
 }
 
 .time {
   font-size: .8em;
-  margin-bottom: 10px;
   background-color: $primary;
   padding: 3px 5px 0 5px;
   color: #FFFFFF;
   border-radius: $radius;
-  width: fit-content;
 }
 
 .room {
   font-size: .8em;
-  margin-top: 10px;
   background-color: $primary;
   padding: 3px 5px 0 5px;
   color: #FFFFFF;
