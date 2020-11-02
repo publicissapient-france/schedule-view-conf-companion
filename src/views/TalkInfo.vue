@@ -30,7 +30,7 @@
     <a
       class="rate"
       target="_blank"
-      :href="`https://conf-companion.firebaseapp.com/rate/cc-20201005#${talk.id}`">
+      :href="`https://conf-companion.firebaseapp.com/rate/${talk.conferenceId}#${talk.id}`">
       Laisser un commentaire
     </a>
     <router-link class="back" to="/" replace>Retour au planning</router-link>
