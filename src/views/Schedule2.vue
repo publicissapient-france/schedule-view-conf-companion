@@ -1,8 +1,9 @@
 <template>
-  <div class="schedule">
+  <div class="schedule"
+       :style="{width: combinedSchedule.length * 185 + 10 + 'px'}">
     <div
       class="wrapper"
-      :style="{width: combinedSchedule.length * 185 + 10 + 'px', height: containerHeight + 'px'}"
+      :style="{height: containerHeight + 'px', width: combinedSchedule.length * 185 + 10 + 'px'}"
     >
       <template v-for="(column, index) in combinedSchedule">
         <Talk2
@@ -66,6 +67,7 @@ export default Vue.extend({
   scrollbar-width: 0;
   position: relative;
   border-bottom: 10px solid #F2F2F2;
+  max-width: 100%;
 
   &::-webkit-scrollbar {
     display: none;
