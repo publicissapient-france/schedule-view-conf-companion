@@ -64,7 +64,7 @@ export default Vue.extend({
   @extend %body-shared;
   overflow: scroll;
   -ms-overflow-style: none;
-  scrollbar-width: 0;
+  scrollbar-width: none;
   position: relative;
   border-bottom: 10px solid #F2F2F2;
   max-width: 98%;
