@@ -56,9 +56,9 @@ export default Vue.extend({
 @import "../styles/variables";
 
 .schedule {
+  @extend %body-shared;
   width: 100%;
   overflow: scroll;
-  margin: -50px auto 50px;
   padding-bottom: 10px;
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -69,9 +69,7 @@ export default Vue.extend({
 }
 
 .wrapper {
-  @extend %body-shared;
   min-width: 960px;
-  margin: auto;
 }
 
 .line {
