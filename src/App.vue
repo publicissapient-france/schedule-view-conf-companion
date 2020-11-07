@@ -53,6 +53,10 @@
     src: url('https://static.engineering.publicissapient.fr/fonts/FuturaNext_Book.otf');
   }
 
+  *, *:before, *:after {
+    box-sizing: border-box;
+  }
+
   body {
     margin: 0;
     padding: 0;
@@ -61,7 +65,6 @@
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    box-sizing: border-box;
   }
 
   pre {

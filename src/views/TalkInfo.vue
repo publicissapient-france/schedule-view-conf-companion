@@ -73,7 +73,6 @@ export default {
 .info {
   @extend %body-shared;
   padding: 10px;
-  width: 90vw;
 }
 
 .head {

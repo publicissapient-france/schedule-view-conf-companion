@@ -1,14 +1,13 @@
 import Vue from 'vue';
 import VueRouter, { RouteConfig } from 'vue-router';
-import Schedule from '@/views/Schedule.vue';
+import Schedule2 from '@/views/Schedule2.vue';
 
 Vue.use(VueRouter);
 
 const routes: Array<RouteConfig> = [
   {
     path: '/',
-    name: 'Schedule',
-    component: Schedule
+    component: Schedule2
   },
   {
     path: '/:id',

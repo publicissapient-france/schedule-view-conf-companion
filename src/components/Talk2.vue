@@ -5,22 +5,20 @@
     :to="`/${talk.id}`"
   >
     <div class="time">
-      {{ start }} - {{ end }}
+      <span>{{ start }} - {{ end }}</span><span>{{ talk.room }}</span>
     </div>
     <div class="title">
       {{ talk.title }}
     </div>
-    <div class="room">
-      {{ talk.room }}
-    </div>
   </router-link>
 </template>
 
-<script>
+<script lang="ts">
 import moment from 'moment';
+import Vue from 'vue';
 
-export default {
-  name: 'TalkInfo',
+export default Vue.extend({
+  name: 'Talk2',
   props: ['talk'],
   computed: {
     start: function () {
@@ -30,7 +28,7 @@ export default {
       return moment(this.talk.toTime).format('HH:mm');
     }
   }
-}
+});
 </script>
 
 <style scoped lang="scss">
@@ -38,9 +36,7 @@ export default {
 
 .talk {
   background-color: #FFFFFF;
-  padding: 10px;
-  margin-left: 10px;
-  margin-top: 10px;
+  padding: 8px;
   border-radius: $radius;
   box-shadow: $shadow;
   display: flex;
@@ -51,7 +47,6 @@ export default {
   &.keynote {
     background-color: $primary;
     color: #FFFFFF;
-    flex-grow: 1;
 
     .title {
       height: auto;
@@ -68,25 +63,21 @@ export default {
 }
 
 .time {
-  font-size: .7em;
-  margin-bottom: 10px;
+  font-size: .6em;
+  margin-bottom: 5px;
   opacity: .8;
+  display: flex;
+  justify-content: space-between;
 }
 
 .title {
   flex-grow: 1;
-  height: 55px;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
   display: flex;
   align-items: center;
-}
-
-.room {
-  font-size: .7em;
-  margin-top: 10px;
-  opacity: .8;
+  font-size: .9em;
 }
 </style>
