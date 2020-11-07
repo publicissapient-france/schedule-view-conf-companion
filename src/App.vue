@@ -14,11 +14,11 @@
 <script lang="ts">
   import Vue from 'vue';
   import axios from 'axios';
-  import { ScheduleEvent } from '@/schedule/schedule';
   import Header from '@/components/Header.vue';
   import Footer from '@/components/Footer.vue';
   import Error from '@/components/Error.vue';
   import Loading from '@/components/Loading.vue';
+  import { ScheduleEvent } from '@/schedule/schedule2';
 
   export default Vue.extend({
     components: { Loading, Error, Header, Footer },

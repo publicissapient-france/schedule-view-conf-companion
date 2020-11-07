@@ -1,6 +1,6 @@
 import moment from 'moment';
 
-type ScheduleEvent = {
+export type ScheduleEvent = {
   readonly fromTime: string
   readonly toTime: string
   readonly room?: string
