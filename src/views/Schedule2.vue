@@ -1,9 +1,9 @@
 <template>
   <div class="schedule"
-       :style="{width: combinedSchedule.length * 185 + 10 + 'px'}">
+       :style="{width: combinedSchedule.length * width + 10 + 'px'}">
     <div
       class="wrapper"
-      :style="{height: containerHeight + 'px', width: combinedSchedule.length * 185 + 10 + 'px'}"
+      :style="{height: containerHeight + 'px', width: combinedSchedule.length * width + 10 + 'px'}"
     >
       <template v-for="(column, index) in combinedSchedule">
         <Talk2
@@ -31,7 +31,8 @@ export default Vue.extend({
   props: ['schedule'],
   data() {
     return {
-      ratio: 2.6
+      ratio: 2.6,
+      width: 195
     };
   },
   computed: {
@@ -50,7 +51,7 @@ export default Vue.extend({
       return {
         height: item.height * this.ratio + 'px',
         top: item.top * this.ratio + 10 + 'px',
-        left: 185 * index + 10 + 'px'
+        left: this.width * index + 10 + 'px'
       };
     }
   }
@@ -81,7 +82,7 @@ export default Vue.extend({
 .talk {
   background-color: #FFFFFF;
   position: absolute;
-  width: 175px;
+  width: 185px;
 
   &.keynote {
     width: calc(100% - 20px);
