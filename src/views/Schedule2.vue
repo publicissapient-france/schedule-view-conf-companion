@@ -1,9 +1,7 @@
 <template>
   <div class="schedule"
        :style="{width: combinedSchedule.length * width + 10 + 'px'}">
-    <div class="now-bar" :style="{top: nowBarOffset + 'px'}">
-      <div class="now-indicator"></div>
-    </div>
+    <div class="now-bar" :style="{top: nowBarOffset + 'px'}"></div>
     <div
       class="wrapper"
       :style="{height: containerHeight + 'px', width: combinedSchedule.length * width + 10 + 'px'}"
@@ -36,13 +34,18 @@ export default Vue.extend({
     return {
       ratio: 2.6,
       width: 195,
-      nowBarOffset: 0
+      nowBarOffset: 0,
+      interval: null
     };
   },
   created() {
     const v = this as any;
-    setInterval(v.updateNowBarOffset, 5 * 60 * 1000);
+    v.interval = setInterval(v.updateNowBarOffset, 5 * 60 * 1000);
     v.updateNowBarOffset();
+  },
+  destroyed() {
+    const v = this as any;
+    clearInterval(v.interval);
   },
   computed: {
     combinedSchedule() {
@@ -71,7 +74,7 @@ export default Vue.extend({
       const startOfDay = moment(new Date(firstTalk.fromTime).toLocaleTimeString(), 'HH:mm');
       const result = now.diff(startOfDay, 'minute') * v.ratio + 10;
       if (result < 0) {
-        v.nowBarOffset = 0;
+        v.nowBarOffset = 10;
       }
       else if (result > v.containerHeight) {
         v.nowBarOffset = v.containerHeight;
@@ -118,19 +121,22 @@ export default Vue.extend({
 .now-bar {
   position: absolute;
   width: 100%;
-  height: 3px;
-  background-color: black;
+  border-top: 2px dashed $tertiary;
   z-index: 2;
 }
 
-.now-indicator {
-  display : inline-block;
-  height : 0;
-  width : 0;
-  border-top : 4px solid transparent;
-  border-bottom : 6px solid transparent;
-  border-left : 10px solid black;
+.now-bar:before {
+  content: "▶";
   position: absolute;
-  top: -3px;
+  top: -12px;
+  left: -2px;
+  color: $tertiary;
+}
+.now-bar:after {
+  content: "◀";
+  position: absolute;
+  top: -12px;
+  right: -2px;
+  color: $tertiary;
 }
 </style>
