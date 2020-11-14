@@ -69,7 +69,7 @@ export default Vue.extend({
         .sort((a: UiScheduleEvent, b: UiScheduleEvent) => moment(a.toTime).diff(moment(b.toTime)))[0];
       const now = moment(new Date().toLocaleTimeString(), 'HH:mm');
       const startOfDay = moment(new Date(firstTalk.fromTime).toLocaleTimeString(), 'HH:mm');
-      const result = now.diff(startOfDay, 'minute') * v.ratio;
+      const result = now.diff(startOfDay, 'minute') * v.ratio + 10;
       if (result < 0) {
         v.nowBarOffset = 0;
       }
