@@ -35,17 +35,17 @@ export default Vue.extend({
       ratio: 2.6,
       width: 195,
       nowBarOffset: 0,
-      interval: null
+      nowBarUpdaterInterval: null
     };
   },
   created() {
     const v = this as any;
-    v.interval = setInterval(v.updateNowBarOffset, 5 * 60 * 1000);
+    v.nowBarUpdaterInterval = setInterval(v.updateNowBarOffset, 5 * 60 * 1000);
     v.updateNowBarOffset();
   },
   destroyed() {
     const v = this as any;
-    clearInterval(v.interval);
+    clearInterval(v.nowBarUpdaterInterval);
   },
   computed: {
     combinedSchedule() {
