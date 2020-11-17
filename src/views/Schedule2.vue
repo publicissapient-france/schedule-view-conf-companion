@@ -128,15 +128,16 @@ export default Vue.extend({
 .now-bar:before {
   content: "▶";
   position: absolute;
-  top: -12px;
+  top: -10px;
   left: -2px;
   color: $tertiary;
 }
+
 .now-bar:after {
   content: "◀";
   position: absolute;
-  top: -12px;
-  right: -2px;
+  top: -13px;
+  right: -4px;
   color: $tertiary;
 }
 </style>
