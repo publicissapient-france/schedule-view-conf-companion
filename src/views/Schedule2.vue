@@ -1,11 +1,11 @@
 <template>
   <div class="schedule"
        :style="{width: combinedSchedule.length * width + 10 + 'px'}">
-    <div class="now-bar" :style="{top: nowBarOffset + 'px'}"></div>
     <div
       class="wrapper"
       :style="{height: containerHeight + 'px', width: combinedSchedule.length * width + 10 + 'px'}"
     >
+      <div class="now-bar" :style="{top: nowBarOffset + 'px'}"></div>
       <template v-for="(column, index) in combinedSchedule">
         <Talk2
           class="talk"
@@ -34,7 +34,7 @@ export default Vue.extend({
     return {
       ratio: 2.6,
       width: 195,
-      nowBarOffset: 0,
+      nowBarOffset: 10,
       nowBarUpdaterInterval: null
     };
   },
@@ -70,9 +70,11 @@ export default Vue.extend({
       const v = this as any;
       const firstTalk = v.combinedSchedule.flatMap((array: UiScheduleEvent[][]) => array)
         .sort((a: UiScheduleEvent, b: UiScheduleEvent) => moment(a.toTime).diff(moment(b.toTime)))[0];
-      const now = moment(new Date().toLocaleTimeString(), 'HH:mm');
-      const startOfDay = moment(new Date(firstTalk.fromTime).toLocaleTimeString(), 'HH:mm');
-      const result = now.diff(startOfDay, 'minute') * v.ratio + 10;
+      const firstTalkStartDateTime = moment(firstTalk.fromTime, 'YYYY-MM-DD HH:mm');
+      const startOfDayAtTodayDate = moment()
+        .set('hour', firstTalkStartDateTime.hour())
+        .set('minute', firstTalkStartDateTime.minute());
+      const result = moment().diff(startOfDayAtTodayDate, 'minute') * v.ratio + 10;
       if (result < 0) {
         v.nowBarOffset = 10;
       }
