@@ -4,7 +4,7 @@
       <div class="time">
         {{ start }} - {{ end }}
       </div>
-      <div class="room">
+      <div class="room" v-if="talk.room">
         {{ talk.room }}
       </div>
     </div>

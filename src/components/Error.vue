@@ -19,6 +19,7 @@
     width: 900px;
     padding: 50px 10px;
     text-align: center;
+    margin: auto;
   }
 
   .issues {

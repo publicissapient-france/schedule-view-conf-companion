@@ -4,7 +4,7 @@ export type ScheduleEvent = {
   readonly fromTime: string
   readonly toTime: string
   readonly room?: string
-  readonly kind: string
+  readonly type: string
 }
 
 type ScheduleEventWithRoom = ScheduleEvent & {
@@ -49,7 +49,7 @@ function computeRooms(events: ScheduleEvent[]): ScheduleEventWithRoom[] {
 
 export const computeSchedule = (events: ScheduleEvent[]): UiScheduleEvent[][] => {
   const sortedEvents = events.sort((a, b) => moment(a.fromTime).diff(moment(b.fromTime)));
-  const roomDefined = sortedEvents.filter(event => !event.room && !event.kind.match(/keynote|break/)).length === 0;
+  const roomDefined = sortedEvents.filter(event => !event.room && !event.type.match(/keynote|break/)).length === 0;
   let eventsWithRoom: ScheduleEventWithRoom[];
   if (roomDefined) {
     eventsWithRoom = sortedEvents.map(event => event as ScheduleEventWithRoom);
