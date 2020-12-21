@@ -13,25 +13,25 @@ describe("Schedule2", () => {
         fromTime: "2020-11-02 10:05",
         toTime: "2020-11-02 10:30",
         room: "Arial",
-        kind: "talk"
+        type: "talk"
       },
       {
         fromTime: "2020-11-02 10:35",
         toTime: "2020-11-02 11:00",
         room: "Arial",
-        kind: "talk"
+        type: "talk"
       },
       {
         fromTime: "2020-11-02 11:05",
         toTime: "2020-11-02 11:30",
         room: "Arial",
-        kind: "talk"
+        type: "talk"
       },
       {
         fromTime: "2020-11-02 11:35",
         toTime: "2020-11-02 12:00",
         room: "Arial",
-        kind: "talk"
+        type: "talk"
       }
     ];
     const localVue = createLocalVue();
