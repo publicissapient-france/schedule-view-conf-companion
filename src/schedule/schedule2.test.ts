@@ -8,13 +8,13 @@ describe('Schedule2', () => {
         fromTime: '2020-07-06 09:00',
         toTime: '2020-07-06 09:30',
         room: 'a',
-        kind: 'talk'
+        type: 'talk'
       },
       {
         fromTime: '2020-07-06 10:00',
         toTime: '2020-07-06 11:00',
         room: 'a',
-        kind: 'talk'
+        type: 'talk'
       }
     ];
     // WHEN
@@ -31,13 +31,13 @@ describe('Schedule2', () => {
         fromTime: '2020-07-06 09:00',
         toTime: '2020-07-06 09:30',
         room: 'a',
-        kind: 'talk'
+        type: 'talk'
       },
       {
         fromTime: '2020-07-06 10:00',
         toTime: '2020-07-06 11:00',
         room: 'b',
-        kind: 'talk'
+        type: 'talk'
       }
     ];
     // WHEN
@@ -53,17 +53,17 @@ describe('Schedule2', () => {
     const e1 = {
       fromTime: '2020-07-06 09:00',
       toTime: '2020-07-06 09:30',
-      kind: 'talk'
+      type: 'talk'
     };
     const e2 = {
       fromTime: '2020-07-06 09:30',
       toTime: '2020-07-06 10:00',
-      kind: 'talk'
+      type: 'talk'
     };
     const e3 = {
       fromTime: '2020-07-06 09:00',
       toTime: '2020-07-06 10:00',
-      kind: 'talk'
+      type: 'talk'
     };
     // WHEN
     const schedule = computeSchedule([e1, e2, e3]);
