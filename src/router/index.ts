@@ -1,12 +1,17 @@
 import Vue from 'vue';
 import VueRouter, { RouteConfig } from 'vue-router';
 import ScheduleGrid from '@/views/ScheduleGrid.vue';
+import Schedule2 from '@/views/Schedule2.vue';
 
 Vue.use(VueRouter);
 
 const routes: Array<RouteConfig> = [
   {
     path: '/',
+    component: Schedule2
+  },
+  {
+    path: '/grid',
     component: ScheduleGrid
   },
   {
