@@ -52,10 +52,10 @@ export default {
       return this.schedule.find(talk => talk.id === this.$route.params.id);
     },
     start() {
-      return moment(this.talk.fromTime).format('HH:mm');
+      return moment(this.talk.fromTime).format('YYYY-MM-DD HH:mm');
     },
     end() {
-      return moment(this.talk.toTime).format('HH:mm');
+      return moment(this.talk.toTime).format('YYYY-MM-DD HH:mm');
     },
     speakersWithUsername() {
       return this.talk.speakers.map(s => ({

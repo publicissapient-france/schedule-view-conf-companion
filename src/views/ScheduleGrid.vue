@@ -104,6 +104,8 @@ export default Vue.extend({
     grid-gap: 10px;
     grid-template-rows:
 			[tracks] auto
+			[time-0845] 0.5fr
+      [time-0855] 0
 			[time-0900] 0.5fr
 			[time-0930] 0.5fr
 			[time-1000] 0.5fr
@@ -190,6 +192,33 @@ export default Vue.extend({
 			[track-5-end track-6-start] 1fr
 			[track-6-end track-7-start] 1fr
 			[track-7-end];
+  }
+
+  .schedule--8-rooms {
+    grid-template-columns:
+			[track-1-start] 1fr
+			[track-1-end track-2-start] 1fr
+			[track-2-end track-3-start] 1fr
+			[track-3-end track-4-start] 1fr
+			[track-4-end track-5-start] 1fr
+			[track-5-end track-6-start] 1fr
+			[track-6-end track-7-start] 1fr
+			[track-7-end track-8-start] 1fr
+			[track-8-end];
+  }
+
+  .schedule--9-rooms {
+    grid-template-columns:
+			[track-1-start] 1fr
+			[track-1-end track-2-start] 1fr
+			[track-2-end track-3-start] 1fr
+			[track-3-end track-4-start] 1fr
+			[track-4-end track-5-start] 1fr
+			[track-5-end track-6-start] 1fr
+			[track-6-end track-7-start] 1fr
+			[track-7-end track-8-start] 1fr
+			[track-8-end track-9-start] 1fr
+			[track-9-end];
   }
 }
 
