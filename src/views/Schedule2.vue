@@ -10,7 +10,7 @@
         <Talk2
           class="talk"
           :class="item.kind"
-          v-for="(item) in column"
+          v-for="item in column"
           :key="item.id"
           :style="computeStyle(index, item)"
           :talk="item"
@@ -77,11 +77,9 @@ export default Vue.extend({
       const result = moment().diff(startOfDayAtTodayDate, 'minute') * v.ratio + 10;
       if (result < 0) {
         v.nowBarOffset = 10;
-      }
-      else if (result > v.containerHeight) {
+      } else if (result > v.containerHeight) {
         v.nowBarOffset = v.containerHeight;
-      }
-      else {
+      } else {
         v.nowBarOffset = result;
       }
     }

@@ -4,6 +4,7 @@ export type ScheduleEvent = {
   readonly fromTime: string
   readonly toTime: string
   readonly room?: string
+  readonly kind?: string
   readonly type: string
 }
 

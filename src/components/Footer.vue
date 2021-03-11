@@ -1,7 +1,7 @@
 <template>
   <footer class="footer">
     <div class="apps">
-      Apps KED (nécessite une adresse <strong>@xebia.fr</strong> ou <strong>@publicissapient.com</strong>).
+      Apps KED (nécessite une adresse <strong>@publicissapient.fr</strong> ou <strong>@publicissapient.com</strong>).
       <div class="badges">
         <a
           target="_blank"
@@ -24,7 +24,7 @@
       </div>
     </div>
     <div class="copyright">
-      © {{ new Date().getFullYear() }} Publicis Sapient Engineering. <a
+      © {{ new Date().getFullYear() }} Publicis Sapient. <a
       href="https://github.com/xebia-france/schedule-view-conf-companion/issues"
       target="_blank"
       class="issues"
