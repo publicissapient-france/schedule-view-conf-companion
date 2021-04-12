@@ -79,5 +79,6 @@ export default Vue.extend({
   display: flex;
   align-items: center;
   font-size: .9em;
+  line-height: 1.1em;
 }
 </style>
