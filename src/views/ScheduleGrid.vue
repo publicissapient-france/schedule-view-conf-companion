@@ -58,8 +58,6 @@ export type Slot = {
   kind?: SlotKind
 }
 
-const SLOT_TYPE_TO_EXCLUDE = ['lunch', 'break', 'keynote'];
-
 export default Vue.extend({
   name: 'Schedule2',
   components: { Talk2 },
@@ -77,7 +75,7 @@ export default Vue.extend({
       return getAllSlotsRooms(this.schedule);
     },
     talkStyle(slot: Slot): SlotStyle {
-      return computeSlotStyle(slot, this.rooms(), SLOT_TYPE_TO_EXCLUDE);
+      return computeSlotStyle(slot, this.rooms());
     },
   },
 });
@@ -104,8 +102,8 @@ export default Vue.extend({
     grid-gap: 10px;
     grid-template-rows:
 			[tracks] auto
-			[time-0845] 0.5fr
-      [time-0855] 0
+			[time-0840] 0.25fr
+      [time-0850] 0.25fr
 			[time-0900] 0.5fr
 			[time-0930] 0.5fr
 			[time-1000] 0.5fr

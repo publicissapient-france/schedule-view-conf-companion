@@ -9,7 +9,7 @@ export type SlotRoom =
   | 'Avenir Black'
   | 'Avenir Medium'
 
-export type SlotType = 'talk' | 'handson' | 'break' | 'lunch' | 'keynote'
+export type SlotType = 'talk' | 'handson' | 'break' | 'lunch' | 'keynote' | 'party'
 
 export type SlotSpeaker = { id: string, name: string }
 
@@ -41,32 +41,55 @@ export function getAllSlotsRooms(slots: Slot[]): SlotRoom[] {
   }, []);
 }
 
-// TODO: Beurk
-export function computeSlotStyle(slot: Slot, rooms: SlotRoom[], toExclude: string[]) {
-  const threshold = 5;
-  let gridColumn = `track-1-start / track-${rooms.length}-end`;
-
-  if (!toExclude.includes(slot.type)) {
-    const roomIndex = rooms.findIndex(value => value === slot.room);
-    gridColumn = `track-${roomIndex + 1}`;
+function computeSlotStartTime(fromTime: moment.Moment, threshold: number): moment.Moment {
+  if (
+    fromTime.minutes() + threshold === 30
+    || fromTime.minutes() - threshold === 30
+    || fromTime.minutes() === 30
+  ) {
+    return fromTime.set('minute', 30);
   }
-
-  const startInHourMinutes = moment(slot.fromTime, 'YYYY-MM-DD HH:mm')
-    .subtract('minutes', 5)
-    .format('HHmm');
-
-  let endInHourMinutes = moment(slot.toTime, 'YYYY-MM-DD HH:mm')
-    .format('HHmm');
-
-  const endInMinute = endInHourMinutes.slice(0, -2);
-
-  // TODO
-  if (Number(endInMinute) % 10 === threshold) {
-    endInHourMinutes = endInHourMinutes.slice(0, -1) + '0';
+  if (
+    fromTime.minutes() + threshold === 60
+    || fromTime.minutes() - threshold === 0
+    || fromTime.minutes() === 0
+  ) {
+    return fromTime.set('minute', 0);
   }
+  return fromTime;
+}
+
+function computeSlotEndTime(toTime: moment.Moment, threshold: number): moment.Moment {
+  if (
+    toTime.minutes() + threshold === 30
+    || toTime.minutes() - threshold === 30
+  ) {
+    return toTime.set('minute', 30);
+  }
+  if (toTime.minutes() + threshold === 60) {
+    return toTime.add('hour', 1).set('minute', 0);
+  }
+  if (toTime.minutes() - threshold === 0) {
+    return toTime.set('minute', 0);
+  }
+  return toTime;
+}
+
+export function computeSlotStyle(
+  { type, room, fromTime, toTime }: Slot,
+  availableSlotRooms: SlotRoom[],
+  slotTypeToExclude: SlotType[] = ['lunch', 'break', 'keynote', 'party'],
+  slotTimeThreshold = 5,
+): SlotStyle {
+  const gridColumn = (!slotTypeToExclude.includes(type))
+    ? `track-${availableSlotRooms.findIndex(slotRoom => slotRoom === room) + 1}`
+    : `track-1-start / track-${availableSlotRooms.length}-end`;
+
+  const startAt = computeSlotStartTime(moment(fromTime, 'YYYY-MM-DD HH:mm'), slotTimeThreshold).format('HHmm');
+  const endAt = computeSlotEndTime(moment(toTime, 'YYYY-MM-DD HH:mm'), slotTimeThreshold).format('HHmm');
 
   return {
     'grid-column': gridColumn,
-    'grid-row': `time-${startInHourMinutes} / time-${endInHourMinutes}`,
+    'grid-row': `time-${startAt} / time-${endAt}`,
   };
 }
