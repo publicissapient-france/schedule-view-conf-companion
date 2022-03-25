@@ -3,16 +3,15 @@ $secondary: hsla(0, 0%, 0%, 1);
 $tertiary: #419FFE;
 
 $radius: 2px;
-$shadow: 0 1px 4px 0 rgba(0, 0, 0, .2);
+$shadow: 0 0 20px 0 rgb(0 0 0 / 15%);
 
 %body-shared {
   max-width: 1024px;
-  border-top: solid 10px $primary;
   box-shadow: $shadow;
   border-radius: $radius;
+  margin: 30px auto auto;
   background-color: #F2F2F2;
   padding-bottom: 10px;
-  margin: -25px auto auto;
 
   @media (max-width: 1024px) {
     border-radius: 0;

@@ -1,6 +1,9 @@
 <template>
   <header class="header">
-    KED ⧖ {{theDay}}
+    <img src="./logo.png"/>
+    <div class="header__banner">
+      {{theDay}}
+    </div>
   </header>
 </template>
 
@@ -21,13 +24,22 @@
 
 <style scoped lang="scss">
   .header {
-    background-color: #000000;
-    height: 105px;
+    background-color: #FFFFFF;
     width: 100%;
-    color: #FFFFFF;
     text-transform: uppercase;
     text-align: center;
     font-weight: bold;
     padding-top: 40px;
+
+    &__banner {
+      margin-top: 20px;
+      height: 40px;
+      background-color: #b2b2b2;
+      vertical-align: middle;
+      text-align: center;
+      font-weight: 600;
+      line-height: 44px;
+      color: #FFFFFF;
+    }
   }
 </style>

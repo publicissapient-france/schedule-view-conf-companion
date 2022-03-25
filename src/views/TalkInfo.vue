@@ -30,7 +30,7 @@
     <a
       class="rate"
       target="_blank"
-      :href="`https://conf-companion.firebaseapp.com/rate/${talk.conferenceId}#${talk.id}`">
+      href="https://forms.office.com/r/Df3U8vc7pU">
       Laisser un commentaire
     </a>
     <router-link class="back" to="/" replace>Retour au planning</router-link>
