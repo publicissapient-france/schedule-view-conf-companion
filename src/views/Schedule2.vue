@@ -96,7 +96,6 @@ export default Vue.extend({
   -ms-overflow-style: none;
   scrollbar-width: none;
   position: relative;
-  max-width: 98%;
 
   &::-webkit-scrollbar {
     display: none;

@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <img src="./logo.png"/>
+    <img class="header__logo" src="./unlocked.svg"/>
     <div class="header__banner">
       {{theDay}}
     </div>
@@ -30,6 +30,11 @@
     text-align: center;
     font-weight: bold;
     padding-top: 40px;
+
+    &__logo {
+      max-width: 400px;
+      width: 90%;
+    }
 
     &__banner {
       margin-top: 20px;
