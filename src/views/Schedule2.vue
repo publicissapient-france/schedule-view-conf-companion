@@ -96,6 +96,7 @@ export default Vue.extend({
   -ms-overflow-style: none;
   scrollbar-width: none;
   position: relative;
+  max-width: 100vw;
 
   &::-webkit-scrollbar {
     display: none;
@@ -121,21 +122,5 @@ export default Vue.extend({
   width: 100%;
   border-top: 2px dashed $tertiary;
   z-index: 2;
-}
-
-.now-bar:before {
-  content: "▶";
-  position: absolute;
-  top: -10px;
-  left: -2px;
-  color: $tertiary;
-}
-
-.now-bar:after {
-  content: "◀";
-  position: absolute;
-  top: -13px;
-  right: -4px;
-  color: $tertiary;
 }
 </style>
