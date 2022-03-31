@@ -113,6 +113,7 @@ export default Vue.extend({
   width: 185px;
 
   &.keynote {
+    min-height:65px;
     width: calc(100% - 20px);
   }
 }
