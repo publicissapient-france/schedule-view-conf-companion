@@ -27,13 +27,6 @@
       {{ speaker.name }}
     </a>
     <a
-      target="_blank"
-      v-if="talk.conferenceUrl"
-      class="meet"
-      :href="talk.conferenceUrl">
-      Rejoindre la conférence
-    </a>
-    <a
       class="rate"
       target="_blank"
       href="https://forms.office.com/r/Df3U8vc7pU">
