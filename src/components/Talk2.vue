@@ -1,7 +1,7 @@
 <template>
   <router-link
     class="talk"
-    :class="[talk.kind]"
+    :class="[talk.kind, talk.metadata.topic.label]"
     :to="`/${talk.id}`"
   >
     <div class="time">
@@ -36,7 +36,7 @@ export default Vue.extend({
 
 .talk {
   background-color: #FFFFFF;
-  padding: 8px;
+  padding: 6px;
   border-radius: $radius;
   box-shadow: $shadow;
   display: flex;
@@ -47,6 +47,7 @@ export default Vue.extend({
   &.keynote {
     background-color: $primary;
     color: #FFFFFF;
+    border-left: none;
 
     .title {
       height: auto;
@@ -79,6 +80,30 @@ export default Vue.extend({
   display: flex;
   align-items: center;
   font-size: .9em;
-  line-height: 1.1em;
+  line-height: 1em;
+}
+
+.Stratégie {
+  border-left: solid 3px #ffe63b;
+}
+
+.Agile, .Produit, .Green {
+  border-left: solid 3px #fe414d;
+}
+
+.Mobile, .Engineering, .Craft, .Sécurité {
+  border-left: solid 3px #079fff;
+}
+
+.Experience {
+  border-left: solid 3px #00e673;
+}
+
+.Data {
+  border-left: solid 3px #B4B4B4;
+}
+
+.Other {
+  border-left: solid 3px #000000;
 }
 </style>

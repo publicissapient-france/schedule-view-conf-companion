@@ -33,7 +33,7 @@ export default Vue.extend({
   data() {
     return {
       ratio: 2.6,
-      width: 195,
+      width: 230,
       nowBarOffset: 10,
       nowBarUpdaterInterval: null
     };
@@ -97,6 +97,7 @@ export default Vue.extend({
   scrollbar-width: none;
   position: relative;
   max-width: 100vw;
+  padding-bottom: 20px;
 
   &::-webkit-scrollbar {
     display: none;
@@ -110,7 +111,7 @@ export default Vue.extend({
 .talk {
   background-color: #FFFFFF;
   position: absolute;
-  width: 185px;
+  width: 220px;
 
   &.keynote {
     width: calc(100% - 20px);

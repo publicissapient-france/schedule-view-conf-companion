@@ -7,6 +7,7 @@
     />
     <Loading v-else-if="loading"/>
     <Error v-else/>
+    <Legend/>
     <Footer/>
   </div>
 </template>
@@ -18,10 +19,11 @@
   import Footer from '@/components/Footer.vue';
   import Error from '@/components/Error.vue';
   import Loading from '@/components/Loading.vue';
+  import Legend from '@/components/Legend.vue';
   import { ScheduleEvent } from '@/schedule/schedule2';
 
   export default Vue.extend({
-    components: { Loading, Error, Header, Footer },
+    components: { Loading, Error, Header, Footer, Legend },
     data() {
       return {
         schedule: null as ScheduleEvent[] | null,

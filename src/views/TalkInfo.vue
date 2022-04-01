@@ -4,9 +4,9 @@
       <div class="time">
         {{ start }} - {{ end }}
       </div>
-      <div class="room" v-if="talk.room">
+      <span class="room" v-if="talk.room">
         {{ talk.room }}
-      </div>
+      </span>
     </div>
     <h1>{{ talk.title }}</h1>
     <VueMarkdown class="summary">
@@ -133,6 +133,7 @@ export default {
 }
 
 .time {
+  display: block;
   font-size: .8em;
   background-color: $primary;
   padding: 3px 5px 0 5px;
