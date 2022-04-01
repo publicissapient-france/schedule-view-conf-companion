@@ -1,12 +1,18 @@
 <template>
   <section class="info">
     <div class="head">
-      <div class="time">
-        {{ start }} - {{ end }}
+      <div>
+        <span class="time">
+          {{ start }} - {{ end }}
+        </span>
+        <Category :category="talk.metadata.topic.label"/>
       </div>
-      <span class="room" v-if="talk.room">
-        {{ talk.room }}
-      </span>
+      <div>
+        <span class="room" v-if="talk.room">
+          {{ talk.room }}
+        </span>
+        <Level :level="talk.metadata.level"/>
+      </div>
     </div>
     <h1>{{ talk.title }}</h1>
     <VueMarkdown class="summary">
@@ -40,11 +46,15 @@
 <script>
 import moment from 'moment';
 import VueMarkdown from 'vue-markdown'
+import Category from "@/components/Category";
+import Level from "@/components/Level";
 
 export default {
   name: 'Details',
   props: ['schedule'],
   components: {
+    Level,
+    Category,
     VueMarkdown
   },
   computed: {
