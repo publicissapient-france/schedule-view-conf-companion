@@ -27,6 +27,7 @@ export default {
   padding: 7px 10px 3px 10px;
   border-radius: 100%;
   font-size: 18px;
+  font-weight: bold;
 
   &.strategy {
     background: $strategy;
