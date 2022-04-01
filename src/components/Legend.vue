@@ -15,6 +15,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../styles/variables";
+
 .legend {
   margin-top: 40px;
   text-align: center;
@@ -27,25 +29,25 @@ export default {
   font-size: 18px;
 
   &.strategy {
-    background: #FFE63B;
+    background: $strategy;
   }
 
   &.product {
-    background: #FE414D;
+    background: $product;
     color: #FFFFFF;
   }
 
   &.experience {
-    background: #00E673;
+    background: $experience;
   }
 
   &.engineering {
-    background: #079FFF;
+    background: $engineering;
     color: #FFFFFF;
   }
 
   &.data {
-    background: #B4B4B4;
+    background: $data;
     color: #FFFFFF;
   }
 }

@@ -84,26 +84,26 @@ export default Vue.extend({
 }
 
 .Stratégie {
-  border-left: solid 3px #ffe63b;
+  border-left: solid 3px $strategy;
 }
 
 .Agile, .Produit, .Green {
-  border-left: solid 3px #fe414d;
-}
-
-.Mobile, .Engineering, .Craft, .Sécurité {
-  border-left: solid 3px #079fff;
+  border-left: solid 3px $product;
 }
 
 .Experience {
-  border-left: solid 3px #00e673;
+  border-left: solid 3px $experience;
+}
+
+.Mobile, .Engineering, .Craft, .Sécurité {
+  border-left: solid 3px $engineering;
 }
 
 .Data {
-  border-left: solid 3px #B4B4B4;
+  border-left: solid 3px $data;
 }
 
 .Other {
-  border-left: solid 3px #000000;
+  border-left: solid 3px $other;
 }
 </style>

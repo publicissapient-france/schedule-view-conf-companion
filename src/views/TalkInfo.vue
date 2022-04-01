@@ -111,8 +111,7 @@ export default {
 }
 
 .meet {
-  background-color: #06ab47;
-  color: #FFFFFF;
+  background-color: #00E6C3;
   padding: 10px 0;
   border-radius: $radius;
   margin-top: 30px;
@@ -121,7 +120,7 @@ export default {
   font-size: .8em;
 
   &:hover {
-    background-color: darken(#06ab47, 5);
+    background-color: darken(#00E6C3, 5);
   }
 }
 
