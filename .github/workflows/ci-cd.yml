@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - main
+      - unlocked
 jobs:
   build:
     name: Build
@@ -37,9 +38,17 @@ jobs:
         with:
           name: dist
           path: dist
-      - name: Deploy to Firebase
+      - name: Deploy to ked-agenda
         uses: w9jds/firebase-action@master
+        if: github.ref_name == 'main'
         with:
-          args: deploy --only hosting
+          args: deploy --only hosting:ked
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+      - name: Deploy to unlocked
+        uses: w9jds/firebase-action@master
+        if: github.ref_name == 'unlocked'
+        with:
+          args: deploy --only hosting:unlocked
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN_UNLOCKED }}
