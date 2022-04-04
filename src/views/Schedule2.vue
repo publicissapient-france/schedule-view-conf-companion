@@ -74,7 +74,12 @@ export default Vue.extend({
       const startOfDayAtTodayDate = moment()
         .set('hour', firstTalkStartDateTime.hour())
         .set('minute', firstTalkStartDateTime.minute());
-      const result = moment().diff(startOfDayAtTodayDate, 'minute') * v.ratio + 10;
+
+      var result = moment().diff(startOfDayAtTodayDate, 'minute') * v.ratio + 10;
+      if (firstTalkStartDateTime.dayOfYear() != moment().dayOfYear()) {
+        result = 0;
+      }
+
       if (result < 0) {
         v.nowBarOffset = 10;
       } else if (result > v.containerHeight) {
