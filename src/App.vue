@@ -33,7 +33,7 @@
     },
     async mounted() {
       try {
-        const response = await axios.get<ScheduleEvent[]>('https://s3.eu-central-1.amazonaws.com/blacroix-conf-companion/xke/schedule.json');
+        const response = await axios.get<ScheduleEvent[]>('https://unlocked-planning.s3.eu-west-3.amazonaws.com/unlocked.json');
         if (response.status === 200) {
           this.schedule = response.data;
           this.day = response.data[0].fromTime;
