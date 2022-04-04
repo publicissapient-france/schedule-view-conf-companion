@@ -1,5 +1,17 @@
 {
   "projects": {
-    "default": "ked-agenda"
+    "ked": "ked-agenda"
+  },
+  "targets": {
+    "ked-agenda": {
+      "hosting": {
+        "unlocked": [
+          "unlocked"
+        ],
+        "ked": [
+          "ked-agenda"
+        ]
+      }
+    }
   }
 }
