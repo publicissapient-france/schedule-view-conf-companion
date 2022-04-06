@@ -22,8 +22,7 @@
       class="speaker"
       v-for="speaker in speakersWithUsername"
       :key="speaker.id"
-      target="_blank"
-      :href="`https://blog.engineering.publicissapient.fr/author/${speaker.username}/`">
+      target="_blank">
       {{ speaker.name }}
     </a>
     <a
