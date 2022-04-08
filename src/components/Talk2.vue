@@ -95,7 +95,7 @@ export default Vue.extend({
   border-left: solid 3px $experience;
 }
 
-.Mobile, .Engineering, .Craft, .Sécurité {
+.Mobile, .Engineering, .Craft, .Sécurité, .Cloud {
   border-left: solid 3px $engineering;
 }
 
