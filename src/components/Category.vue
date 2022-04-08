@@ -38,7 +38,7 @@ export default {
   background: $experience;
 }
 
-.Sécurité, .Engineering, .Craft, .Mobile {
+.Sécurité, .Engineering, .Craft, .Mobile, .Cloud {
   background: $engineering;
   color: #FFFFFF;
 }
