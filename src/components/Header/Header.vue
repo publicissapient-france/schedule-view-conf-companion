@@ -2,7 +2,7 @@
   <header class="header">
     <img class="header__logo" src="./unlocked.svg"/>
     <div class="header__banner">
-      {{theDay}}
+      <div class="header__inner-banner">{{theDay}}<a href="https://click.engineering.publicissapient.fr/unlocked" class="header__banner__register">inscription</a></div>
     </div>
   </header>
 </template>
@@ -23,6 +23,7 @@
 </script>
 
 <style scoped lang="scss">
+  @import "../../styles/variables";
   .header {
     background-color: #FFFFFF;
     width: 100%;
@@ -36,15 +37,40 @@
       width: 90%;
     }
 
+    &__inner-banner {
+      width: 100%;
+      max-width: 930px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      padding: 0 10px;
+      justify-content: space-between;
+      height: 100%;
+    }
+
     &__banner {
       margin-top: 20px;
-      height: 40px;
+      height: 60px;
       background-color: #b2b2b2;
-      vertical-align: middle;
-      text-align: center;
       font-weight: 600;
-      line-height: 44px;
       color: #FFFFFF;
+
+      &__register {
+        height: 30px;
+        background: $primary;
+        border: none;
+        text-transform: uppercase;
+        color: #FFFFFF;
+        padding: 0 20px;
+        cursor: pointer;
+        width: fit-content;
+        border-radius: $radius;
+        font-weight: normal;
+        line-height: 32px;
+        &:hover {
+          background: darken($primary, 10);
+        }
+      }
     }
   }
 </style>
