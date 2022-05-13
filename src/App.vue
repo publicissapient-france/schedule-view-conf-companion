@@ -52,7 +52,7 @@
     font-family: 'Futura Next';
     font-style: normal;
     font-weight: normal;
-    src: url('https://static.engineering.publicissapient.fr/fonts/FuturaNext_Book.otf');
+    src: url('./styles/FuturaNext_Book.otf');
   }
 
   *, *:before, *:after {
