@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <img class="header__logo" src="./unlocked.svg"/>
+    <img class="header__logo" alt="ked logo" src="./ked.svg"/>
     <div class="header__banner">
       {{theDay}}
     </div>
