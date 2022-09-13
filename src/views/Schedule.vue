@@ -7,7 +7,7 @@
     >
       <div class="now-bar" :style="{top: nowBarOffset + 'px'}"></div>
       <template v-for="(column, index) in combinedSchedule">
-        <Talk2
+        <Talk
           class="talk"
           :class="item.kind"
           v-for="item in column"
@@ -23,12 +23,12 @@
 <script lang="ts">
 import Vue from 'vue';
 import moment from 'moment';
-import { computeSchedule, UiScheduleEvent } from '@/schedule/schedule2';
-import Talk2 from '@/components/Talk2.vue';
+import { computeSchedule, UiScheduleEvent } from '@/schedule/schedule';
+import Talk from '@/components/Talk.vue';
 
 export default Vue.extend({
-  name: 'Schedule2',
-  components: { Talk2 },
+  name: 'Schedule',
+  components: { Talk },
   props: ['schedule'],
   data() {
     return {

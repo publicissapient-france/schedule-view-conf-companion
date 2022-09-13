@@ -1,6 +1,6 @@
-import { computeSchedule } from '@/schedule/schedule2';
+import { computeSchedule } from '@/schedule/schedule';
 
-describe('Schedule2', () => {
+describe('Schedule', () => {
   it('should calculate height and top based on duration and fromTime', () => {
     // GIVEN
     const schedule = [

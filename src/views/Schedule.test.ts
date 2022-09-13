@@ -1,9 +1,9 @@
 import {createLocalVue, shallowMount} from "@vue/test-utils";
-import Schedule2 from "@/views/Schedule2.vue";
-import {ScheduleEvent} from "@/schedule/schedule2";
+import Schedule from "@/views/Schedule.vue";
+import {ScheduleEvent} from "@/schedule/schedule";
 import MockDate from 'mockdate';
 
-describe("Schedule2", () => {
+describe("Schedule", () => {
 
   let component: any;
 
@@ -35,7 +35,7 @@ describe("Schedule2", () => {
       }
     ];
     const localVue = createLocalVue();
-    const wrapper = shallowMount(Schedule2, {
+    const wrapper = shallowMount(Schedule, {
       localVue,
       propsData: {schedule}
     });

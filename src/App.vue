@@ -20,7 +20,7 @@
   import Error from '@/components/Error.vue';
   import Loading from '@/components/Loading.vue';
   import Legend from '@/components/Legend.vue';
-  import { ScheduleEvent } from '@/schedule/schedule2';
+  import { ScheduleEvent } from '@/schedule/schedule';
 
   export default Vue.extend({
     components: { Loading, Error, Header, Footer, Legend },
