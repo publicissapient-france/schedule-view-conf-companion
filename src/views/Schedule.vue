@@ -111,10 +111,11 @@ export default Vue.extend({
 
 .wrapper {
   position: relative;
+  background-color: lighten($background, 2);
 }
 
 .talk {
-  background-color: #FFFFFF;
+  background-color: white;
   position: absolute;
   width: 220px;
 
@@ -126,7 +127,7 @@ export default Vue.extend({
 .now-bar {
   position: absolute;
   width: 100%;
-  border-top: 2px dashed $tertiary;
+  border-top: 2px dashed $accent;
   z-index: 2;
 }
 </style>

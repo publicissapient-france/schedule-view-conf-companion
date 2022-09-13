@@ -35,7 +35,6 @@ export default Vue.extend({
 @import "../styles/variables";
 
 .talk {
-  background-color: #FFFFFF;
   padding: 6px;
   border-radius: $radius;
   box-shadow: $shadow;
@@ -46,7 +45,7 @@ export default Vue.extend({
 
   &.keynote {
     background-color: $primary;
-    color: #FFFFFF;
+    color: $text-on-primary;
     border-left: none;
 
     .title {
@@ -55,7 +54,7 @@ export default Vue.extend({
   }
 
   &:hover {
-    background-color: darken(#FFFFFF, 10);
+    background-color: darken(white, 10);
 
     &.keynote {
       background-color: darken($primary, 10);

@@ -1,6 +1,38 @@
+// Color branding below according to Publicis Sapient colors
+
+// Primary coolor is used as the baseline for the theme to appear in important
+// locations. It is used:
+//  - in the **Schedule** view for the background of the **keynote sessions**
+//  - in the **TalkInfo** view for the **speaker** blocks background
 $primary: #FE414D;
-$secondary: hsla(0, 0%, 0%, 1);
-$tertiary: #419FFE;
+$text-on-primary: white;
+
+// Accent color is used to put accent on things that should stand out somehow.
+// It is used:
+//  - in the **Schedule** view for the **dashed line** to show the current time
+//  - in the **TalkInfo** view
+//      - for the **_rate/comment_** button
+//      - for the **time** badge
+//      - for the **room** badge
+$accent: #419FFE;
+$text-on-accent: white;
+
+// Passive color is used to dissociate "passive" information while not
+// especially making them stand out
+//  - in the **Header** for the background color of the banner with the date
+//  - in the **TalkInfo** view for the **_back to planning_** button
+$passive: #B2B2B2;
+$text-on-passive: white;
+
+// Background color is used to compute all the main colored backgrounds
+// everywhere; it is used: - for the **Header** background
+//  - in the **Schedule** view
+//      - for the main background
+//      - for the schedule ("wrapper") background, by lightening it a bit
+//  - in the **TalkInfo** view
+//      - for the main background
+//      - for the main talk summary background, by lightening it a bit
+$background: #E6E6E6;
 
 $radius: 2px;
 $shadow: 0 0 20px 0 rgb(0 0 0 / 15%);
@@ -17,7 +49,7 @@ $other: #000000;
   box-shadow: $shadow;
   border-radius: $radius;
   margin: 30px auto auto;
-  background-color: #F2F2F2;
+  background-color: $background;
   padding-bottom: 10px;
 
   @media (max-width: 1024px) {
