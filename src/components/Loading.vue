@@ -1,5 +1,5 @@
 <template>
-  <div class="loading">Récupération du planning, veuillez patienter...</div>
+  <div class="loading">Retrieving planning, please wait...</div>
 </template>
 
 <script>

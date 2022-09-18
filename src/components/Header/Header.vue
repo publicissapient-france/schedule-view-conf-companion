@@ -15,8 +15,8 @@
     props: ['day'],
     computed: {
       theDay: function () {
-        moment.locale('fr');
-        return moment(this.day).format('D MMMM YYYY')
+        moment.locale('en');
+        return moment(this.day).format('Do MMMM YYYY')
       }
     }
   }

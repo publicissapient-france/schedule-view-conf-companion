@@ -1,10 +1,10 @@
 <template>
-  <div class="error">Une erreur s'est produite, veuillez essayer à nouveau ou <a
+  <div class="error">An error occurred, please try again or <a
     href="https://github.com/xebia-france/schedule-view-conf-companion/issues"
     target="_blank"
     class="issues"
   >
-    remonter un bug</a>.
+    send a bug report</a>.
   </div>
 </template>
 

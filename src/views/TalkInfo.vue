@@ -16,7 +16,7 @@
     </div>
     <h1>{{ talk.title }}</h1>
     <VueMarkdown class="summary">
-      {{ talk.summary || 'Aucune description.' }}
+      {{ talk.summary || 'No talk summary.' }}
     </VueMarkdown>
     <a
       class="speaker"
@@ -30,9 +30,9 @@
       class="rate"
       target="_blank"
       :href="`https://conf-companion.firebaseapp.com/rate/${talk.conferenceId}#${talk.id}`">
-      Laisser un commentaire
+      Leave a comment
     </a>
-    <router-link class="back" to="/" replace>Retour au planning</router-link>
+    <router-link class="back" to="/" replace>Back to the planning</router-link>
   </section>
 </template>
 
