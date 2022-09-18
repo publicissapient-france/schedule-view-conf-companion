@@ -18,7 +18,7 @@ import moment from 'moment';
 import Vue from 'vue';
 
 export default Vue.extend({
-  name: 'Talk2',
+  name: 'Talk',
   props: ['talk'],
   computed: {
     start: function () {
