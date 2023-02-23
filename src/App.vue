@@ -33,7 +33,7 @@
     },
     async mounted() {
       try {
-        const response = await axios.get<ScheduleEvent[]>('https://s3.eu-central-1.amazonaws.com/blacroix-conf-companion/xke/schedule.json');
+         const response = await axios.get<ScheduleEvent[]>(`https://storage.googleapis.com/storage/v1/b/${process.env.BUCKET_NAME}/o/schedule.json?alt=media`);
         if (response.status === 200) {
           this.schedule = response.data;
           this.day = response.data[0].fromTime;
