@@ -21,7 +21,7 @@
   import Loading from '@/components/Loading.vue';
   import Legend from '@/components/Legend.vue';
   import { ScheduleEvent } from '@/schedule/schedule';
-  const STORAGE_NAME = process.env.BUCKET_NAME
+  const STORAGE_NAME = process.env.VUE_APP_BUCKET_NAME
 
   export default Vue.extend({
     components: { Loading, Error, Header, Footer, Legend },

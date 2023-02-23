@@ -52,4 +52,4 @@ jobs:
           args: deploy --only hosting:unlocked
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN_UNLOCKED }}
-          BUCKET_NAME: ${{secrets.BUCKET_NAME}}
+          BUCKET_NAME: ${{secrets.VUE_APP_BUCKET_NAME}}
