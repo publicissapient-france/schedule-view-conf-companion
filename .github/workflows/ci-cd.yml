@@ -14,7 +14,7 @@ jobs:
       - name: Use Node
         uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: "14"
       - name: Download dependencies
         run: npm install
       - name: Test
@@ -52,3 +52,4 @@ jobs:
           args: deploy --only hosting:unlocked
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN_UNLOCKED }}
+          BUCKET_NAME: ${{secrets.BUCKET_NAME}}
