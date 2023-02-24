@@ -21,6 +21,7 @@
   import Loading from '@/components/Loading.vue';
   import Legend from '@/components/Legend.vue';
   import { ScheduleEvent } from '@/schedule/schedule';
+  const STORAGE_NAME = process.env.VUE_APP_BUCKET_NAME
 
   export default Vue.extend({
     components: { Loading, Error, Header, Footer, Legend },
@@ -33,7 +34,7 @@
     },
     async mounted() {
       try {
-        const response = await axios.get<ScheduleEvent[]>('https://s3.eu-central-1.amazonaws.com/blacroix-conf-companion/xke/schedule.json');
+         const response = await axios.get<ScheduleEvent[]>(`https://storage.googleapis.com/storage/v1/b/${STORAGE_NAME}/o/schedule.json?alt=media`);
         if (response.status === 200) {
           this.schedule = response.data;
           this.day = response.data[0].fromTime;
