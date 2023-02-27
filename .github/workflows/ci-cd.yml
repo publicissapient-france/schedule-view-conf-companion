@@ -45,6 +45,7 @@ jobs:
           args: deploy --only hosting:ked
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+          VUE_APP_BUCKET_NAME: ${{secrets.VUE_APP_BUCKET_NAME}}
       - name: Deploy to unlocked
         uses: w9jds/firebase-action@master
         if: github.ref_name == 'unlocked'
