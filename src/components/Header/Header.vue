@@ -2,7 +2,7 @@
   <header class="header">
     <img class="header__logo" src="./unlocked.svg"/>
     <div class="header__banner">
-      <div class="header__inner-banner">{{theDay}}<a href="https://click.engineering.publicissapient.fr/unlocked" class="header__banner__register">inscription</a></div>
+      <div class="header__inner-banner">{{theDay}}<a href="https://events.publicissapient.com/unlocked" class="header__banner__register">inscription</a></div>
     </div>
   </header>
 </template>
