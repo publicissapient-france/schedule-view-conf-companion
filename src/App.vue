@@ -7,7 +7,7 @@
     />
     <Loading v-else-if="loading"/>
     <Error v-else/>
-    <Legend/>
+    <Legend v-if="publicisSpeedLegendEnabled"/>
     <Footer/>
   </div>
 </template>
@@ -28,7 +28,11 @@
       return {
         schedule: null as ScheduleEvent[] | null,
         day: null as string | null,
-        loading: true
+        loading: true,
+
+        // Configuration: mainly feature toggles about Publicis Sapient
+        // specificities and branding
+        publicisSpeedLegendEnabled: true,
       };
     },
     async mounted() {
