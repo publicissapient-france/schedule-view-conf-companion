@@ -48,6 +48,8 @@
 </script>
 
 <style lang="scss">
+@import "./styles/variables";
+
   @font-face {
     font-family: 'Futura Next';
     font-style: normal;
@@ -62,7 +64,7 @@
   body {
     margin: 0;
     padding: 0;
-    background-color: #E6E6E6;
+    background-color: $background;
     font-family: 'Futura Next', serif;
     font-weight: 400;
     -webkit-font-smoothing: antialiased;

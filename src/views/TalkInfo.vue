@@ -76,6 +76,7 @@ export default {
 .info {
   @extend %body-shared;
   padding: 10px;
+  background-color: lighten($background, 2);
 }
 
 .head {
@@ -84,9 +85,9 @@ export default {
 }
 
 .back {
-  background-color: #B2B2B2;
+  background-color: $passive;
+  color: $text-on-passive;
   padding: 10px 0;
-  color: #FFFFFF;
   font-size: .8em;
   border-radius: $radius;
   margin-top: 30px;
@@ -94,13 +95,13 @@ export default {
   text-align: center;
 
   &:hover {
-    background-color: darken(#B2B2B2, 5);
+    background-color: darken($passive, 10);
   }
 }
 
 .rate {
-  background-color: $primary;
-  color: #FFFFFF;
+  background-color: $accent;
+  color: $text-on-accent;
   padding: 10px 0;
   border-radius: $radius;
   margin-top: 10px;
@@ -109,12 +110,12 @@ export default {
   font-size: .8em;
 
   &:hover {
-    background-color: darken($primary, 5);
+    background-color: darken($accent, 10);
   }
 }
 
 .meet {
-  background-color: #00E6C3;
+  background-color: $accent;
   padding: 10px 0;
   border-radius: $radius;
   margin-top: 30px;
@@ -123,12 +124,12 @@ export default {
   font-size: .8em;
 
   &:hover {
-    background-color: darken(#00E6C3, 5);
+    background-color: darken($accent, 10);
   }
 }
 
 .summary {
-  color: #2B2B2B;
+  color: lighten(black, 10);
   font-size: .9em;
   margin-top: 30px;
   margin-bottom: 40px;
@@ -137,24 +138,24 @@ export default {
 .time {
   display: block;
   font-size: .8em;
-  background-color: $primary;
+  background-color: $accent;
   padding: 3px 5px 0 5px;
-  color: #FFFFFF;
+  color: $text-on-accent;
   border-radius: $radius;
 }
 
 .room {
   font-size: .8em;
-  background-color: $primary;
+  background-color: $accent;
   padding: 3px 5px 0 5px;
-  color: #FFFFFF;
+  color: $text-on-accent;
   border-radius: $radius;
   width: fit-content;
 }
 
 .speaker {
-  background-color: $tertiary;
-  color: #FFFFFF;
+  background-color: $primary;
+  color: $text-on-primary;
   padding: 10px;
   font-size: .8em;
   border-radius: $radius;

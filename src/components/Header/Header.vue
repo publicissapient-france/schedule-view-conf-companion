@@ -23,8 +23,10 @@
 </script>
 
 <style scoped lang="scss">
+@import "../../styles/variables";
+
   .header {
-    background-color: #FFFFFF;
+    background-color: $background;
     width: 100%;
     text-transform: uppercase;
     text-align: center;
@@ -39,12 +41,12 @@
     &__banner {
       margin-top: 20px;
       height: 40px;
-      background-color: #b2b2b2;
+      background-color: $passive;
+      color: $text-on-passive;
       vertical-align: middle;
       text-align: center;
       font-weight: 600;
       line-height: 44px;
-      color: #FFFFFF;
     }
   }
 </style>

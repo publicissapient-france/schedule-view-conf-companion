@@ -43,7 +43,7 @@ export default {
 <style scoped lang="scss">
 .footer {
   font-size: .8em;
-  color: #2B2B2B;
+  color: lighten(black, 10);
   text-align: center;
   margin: 30px 10px;
 }
